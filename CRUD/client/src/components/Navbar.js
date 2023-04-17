@@ -5,8 +5,8 @@ const Navbar = () => {
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary m-1">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+          <a className="navbar-brand" href="/">
+           Home
           </a>
           <button
             className="navbar-toggler"
@@ -23,7 +23,7 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
-                  Home
+                  {/* Home */}
                 </a>
               </li>
             </ul>

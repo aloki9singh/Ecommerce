@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
+import { adddata } from "./Context/ContextProvider";
+
 const Register = () => {
+  const {udata,setUdata}=useContext(adddata)
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -10,6 +13,7 @@ const Register = () => {
     add: "",
     description: "",
   });
+  const navigate =useNavigate()
   console.log(input);
   const setData = (e) => {
     const { name, value } = e.target;
@@ -19,6 +23,30 @@ const Register = () => {
         [name]: value,
       };
     });
+  };
+  const addInputData = async (e) => {
+    e.preventDefault();
+    const res = await fetch(`http://localhost:8080/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(input),
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (res.status === 404 || !data) {
+      alert("error");
+      console.log("Error!");
+    } else {
+     
+      alert("Data Added Successfully");
+      navigate("/")
+      console.log("Data Added Successfully");
+      setUdata(data)
+    }
   };
   return (
     <div className="m-5">
@@ -96,6 +124,20 @@ const Register = () => {
               aria-describedby="emailHelp"
             />
           </div>
+          <div className="mb-3 col-lg-6 col-md-6 col-12">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Address
+            </label>
+            <input
+              onChange={setData}
+              value={input.add}
+              type="text"
+              name="add"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
           <div className="mb-3 col-lg-12 col-md-12 col-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Description
@@ -111,7 +153,11 @@ const Register = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={addInputData}
+          >
             Submit
           </button>
         </div>

@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, NavLink, useParams } from "react-router-dom";
+import { updatedata } from "./Context/ContextProvider";
 const Edit = () => {
+
+  const {edata,setEdata} =useContext(updatedata)
   const [input, setInput] = useState({
     name: "",
     email: "",
@@ -10,7 +13,9 @@ const Edit = () => {
     add: "",
     description: "",
   });
-  console.log(input);
+  const navigate=useNavigate()
+  
+
   const setData = (e) => {
     const { name, value } = e.target;
     setInput((preval) => {
@@ -20,6 +25,50 @@ const Edit = () => {
       };
     });
   };
+  const { id } = useParams();
+ 
+
+  const getData = async () => {
+    const res = await fetch(`http://localhost:8080/getdata/${id}`);
+
+    const data = await res.json();
+
+    if (res.status === 404 || !data) {
+      alert("error");
+      console.log("Error!");
+    } else {
+      setInput(data);
+
+      // console.log("Data is available");
+    }
+  }
+  const updateData=async(e)=>{
+     e .preventDefault()
+
+    const res2 = await fetch(`http://localhost:8080/updateuser/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(input),
+    });
+
+    const data3 = await res2.json();
+
+    if (res2.status === 404 || !data3) {
+      alert("Please Fill Data!");
+      console.log("Error!");
+    } else {
+      navigate("/")
+      setEdata(data3)
+      console.log("Data Updated Successfully");
+    }
+
+  }
+  useEffect(() => {
+    getData();
+ 
+  }, []);
   return (
     <div className="m-5">
       <NavLink to="/">Home</NavLink>
@@ -96,6 +145,20 @@ const Edit = () => {
               aria-describedby="emailHelp"
             />
           </div>
+          <div className="mb-3 col-lg-6 col-md-6 col-12">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Address
+            </label>
+            <input
+              onChange={setData}
+              value={input.add}
+              type="text"
+              name="work"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
           <div className="mb-3 col-lg-12 col-md-12 col-12">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Description
@@ -111,7 +174,7 @@ const Edit = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={updateData}>
             Submit
           </button>
         </div>
