@@ -53,6 +53,7 @@ const Details = () => {
 
   return (
     <div className="container mt-3">
+      <div>
       <h1 style={{ fontWeight: "400" }}>Welcome {name}</h1>
       <Card sx={{ maxWidth: 600 }}>
         <CardContent>
@@ -105,6 +106,7 @@ const Details = () => {
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
   }

@@ -3,6 +3,14 @@
 }
 .container {
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.containe {
+  overflow: auto;
+ 
 }
 
 .left_view h3 {
@@ -19,4 +27,8 @@
 }
 .right_view span {
   font-weight: 400;
+}
+body{
+  background: url("./magic2.png");
+  margin: 20px;
 }

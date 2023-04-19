@@ -5,7 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import { adddata, deletedata, updatedata } from "./Context/ContextProvider";
 
-const Home = () => {
+const Search = () => {
   const [userData, setUsersData] = useState([]);
   const { udata, setUdata } = useContext(adddata);
   const { edata, setEdata } = useContext(updatedata);
@@ -55,7 +55,7 @@ const Home = () => {
             class="alert alert-success alert-dismissible fade show"
             role="alert"
           >
-            <strong>{udata.name} </strong>  Added Successfully.
+            <strong>{udata.name} </strong> Added Successfully.
             <button
               type="button"
               class="btn-close"
@@ -159,4 +159,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Search;
