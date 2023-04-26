@@ -16,7 +16,7 @@ const Details = () => {
   const { ddata, setDdata } = useContext(deletedata);
  const navigate=useNavigate()
   const getData = async () => {
-    const res = await fetch(`http://localhost:8080/getdata/${id}`);
+    const res = await fetch(`/getdata/${id}`);
 
     const data = await res.json();
 
@@ -32,7 +32,7 @@ const Details = () => {
   const { _id, email, name, mobile, age, work, add, description } = userData;
  
   const handleDelete=async()=>{
-    const res2=await fetch(`http://localhost:8080/deleteuser/${id}`,{
+    const res2=await fetch(`/deleteuser/${id}`,{
       method:"DELETE"
     });
   

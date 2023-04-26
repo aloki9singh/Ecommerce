@@ -14,7 +14,7 @@ const Home = () => {
   console.log("ddata", ddata);
   console.log("udata", udata);
   const getData = async () => {
-    const res = await fetch(`http://localhost:8080/getdata`);
+    const res = await fetch(`/getdata`);
 
     const data = await res.json();
 
@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   const handleDelete = async (id) => {
-    const res2 = await fetch(`http://localhost:8080/deleteuser/${id}`, {
+    const res2 = await fetch(`/deleteuser/${id}`, {
       method: "DELETE",
     });
 

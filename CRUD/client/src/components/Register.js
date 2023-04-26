@@ -26,7 +26,7 @@ const Register = () => {
   };
   const addInputData = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:8080/register`, {
+    const res = await fetch(`/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
