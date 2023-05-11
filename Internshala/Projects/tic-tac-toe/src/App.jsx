@@ -3,15 +3,16 @@ import "./App.css";
 import "./styles.scss";
 import { useState } from "react";
 import { CalculateWinner } from "./Components/Winner";
+import Statusmessage from "./Components/Statusmessage";
 
 function App() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(false);
   const winner = CalculateWinner(squares);
-  const nextPlayer = isXNext ? "X" : "O";
-  const statusMessage = winner
-    ? `Winner is ${winner}`
-    : `Next Player is ${nextPlayer}`;
+  // const nextPlayer = isXNext ? "X" : "O";
+  // const statusMessage = winner
+  //   ? `Winner is ${winner}`
+  //   : `Next Player is ${nextPlayer}`;
 
   const handleSquareClick = (Clickedposition) => {
     //it is for on Click again the value doesnt changes
@@ -32,8 +33,9 @@ function App() {
   };
   return (
     <div className="app">
-      <h2>Next player is {nextPlayer}</h2>
+      {/* <h2>Next player is {nextPlayer}</h2> */}
       <Board handleSquareClick={handleSquareClick} squares={squares} />
+      <Statusmessage winner={winner} isXNext={isXNext} squares={squares}/>
     </div>
   );
 }
