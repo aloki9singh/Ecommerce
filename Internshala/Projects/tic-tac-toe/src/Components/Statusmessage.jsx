@@ -1,6 +1,7 @@
 import React from "react";
 
-const Statusmessage = ({ winner, isXNext, squares }) => {
+const Statusmessage = ({ winner, gamingBoard }) => {
+  const { squares, isXNext } = gamingBoard;
   const noMovesLeft = squares.every((ele) => ele !== null);
   const nextPlayer = isXNext ? "X" : "O";
 
