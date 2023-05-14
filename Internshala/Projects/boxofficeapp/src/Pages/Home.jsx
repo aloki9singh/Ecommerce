@@ -2,16 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { searchforActors, searchforShows } from "../api/tvmaze";
+import Searchform from "../Components/Searchform";
 
 const Home = () => {
-  const [inputValue, setInputValue] = useState("");
   const [apiData, setApiData] = useState(null);
   const [apidataError, setApidataError] = useState(null);
-  const [searchOption, setSearchOption] = useState("shows");
 
-  const handleChange = (e) => setInputValue(e.target.value);
-  const onSearch = async (e) => {
-    e.preventDefault();
+  const onSearch = async (inputValue, searchOption) => {
     try {
       setApidataError(null);
       const data =
@@ -34,36 +31,10 @@ const Home = () => {
     }
     return null;
   };
-  const onRadiochange = (e) => {
-    setSearchOption(e.target.value);
-  };
 
   return (
     <div>
-      <form action="" onSubmit={onSearch}>
-        <input type="text" onChange={handleChange} value={inputValue} />
-        <label>
-          Shows
-          <input
-            checked={searchOption == "shows"}
-            type="radio"
-            name="search-option"
-            value={"shows"}
-            onChange={onRadiochange}
-          />
-        </label>
-        <label>
-          Actors
-          <input
-            checked={searchOption == "actors"}
-            type="radio"
-            name="search-option"
-            value={"actors"}
-            onChange={onRadiochange}
-          />
-        </label>
-        <button type="submit">Search</button>
-      </form>
+      <Searchform onSearch={onSearch} />
       <div id="container">{renderApiData()}</div>
     </div>
   );
