@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { searchforActors, searchforShows } from "../api/tvmaze";
+import ActorsGrid from "../Components/actors/ActorsGrid";
 import Searchform from "../Components/Searchform";
+import ShowGrid from "../Components/shows/ShowGrid";
 
 const Home = () => {
   const [apiData, setApiData] = useState(null);
@@ -20,14 +22,15 @@ const Home = () => {
       setApidataError(error);
     }
   };
-  const renderApiData = () => {
+   const renderApiData = () => {
     if (apidataError) {
       return <div>Error occured:{apidataError.message}</div>;
     }
+    if (apiData?.length == 0) {
+      return <div>No Results</div>;
+    }
     if (apiData) {
-      return apiData[0].show
-        ? apiData.map((e) => <div key={e.show.id}>{e.show.name}</div>)
-        : apiData.map((e) => <div key={e.person.id}>{e.person.name}</div>);
+      return apiData[0].show ? <ShowGrid shows={apiData} /> : <ActorsGrid actors={apiData}/>;
     }
     return null;
   };

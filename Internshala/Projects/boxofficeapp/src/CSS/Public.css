@@ -8,3 +8,11 @@
     flex-wrap: wrap;
     justify-content: center;
 } */
+
+.shows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.shows > div > div > img {
+  object-fit: contain;
+}
