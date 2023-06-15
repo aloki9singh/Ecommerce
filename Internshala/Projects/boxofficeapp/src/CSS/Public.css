@@ -1,6 +1,8 @@
 .nav-link {
   gap: 10px;
   display: flex;
+  text-align: center;
+  
 }
 /* #container{
     display: flex;

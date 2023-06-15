@@ -8,6 +8,7 @@ const Navbar = () => {
   ];
   return (
     <div className="nav-link">
+      
       {LINKS.map((e, i) => (
         <Link key={i} to={e.to}>
           {e.text}

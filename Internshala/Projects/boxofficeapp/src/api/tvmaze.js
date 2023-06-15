@@ -8,4 +8,7 @@ const apiGet = async (searchShow) => {
 export const searchforShows = (searchinput) =>
   apiGet(`/search/shows?q=${searchinput}`);
 export const searchforActors = (searchinput) =>
-  apiGet(`/search/people?q=${searchinput}`);
+  apiGet(`/search/people?q=${searchinput}`);     
+
+  export const getShowsById = (id) =>
+  apiGet(`/shows/${id}`);
