@@ -1,4 +1,11 @@
 //custom hook
+  <div dangerouslySetInnerHTML={{ __html: summary }} />
+  this above property will remove extra html tags inside api summary
+-------------------------------
+
+  If you user to navigate user in newpage on Click then:-
+
+--------------------------------
 
 const useShowById = (id) => {
   const [showData, setShowData] = useState(null);
@@ -14,7 +21,7 @@ const useShowById = (id) => {
         setShowError(error);
       }
     }
-
+    
     fetchData();
   }, [id]);
   return { showData, showError };

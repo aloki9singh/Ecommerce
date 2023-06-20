@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useState } from "react";
 import { searchforActors, searchforShows } from "../api/tvmaze";
@@ -7,22 +8,22 @@ import Searchform from "../Components/Searchform";
 import ShowGrid from "../Components/shows/ShowGrid";
 
 const Home = () => {
-  const [apiData, setApiData] = useState(null);
-  const [apidataError, setApidataError] = useState(null);
+  const [filter, setFilter] = useState("");
+ 
+  const { data: apiData, error: apidataError } = useQuery({
+    queryKey: ["search", filter],
+    queryFn: () =>
+      filter.searchOption == "shows"
+        ? searchforShows(filter.inputValue)
+        : searchforActors(filter.inputValue),
+    enabled: !!filter,
+    refetchOnWindowFocus: false,
+  });
 
   const onSearch = async (inputValue, searchOption) => {
-    try {
-      setApidataError(null);
-      const data =
-        searchOption == "shows"
-          ? await searchforShows(inputValue)
-          : await searchforActors(inputValue);
-      setApiData(data);
-    } catch (error) {
-      setApidataError(error);
-    }
+    setFilter({ inputValue, searchOption });
   };
-   const renderApiData = () => {
+  const renderApiData = () => {
     if (apidataError) {
       return <div>Error occured:{apidataError.message}</div>;
     }
@@ -30,7 +31,11 @@ const Home = () => {
       return <div>No Results</div>;
     }
     if (apiData) {
-      return apiData[0].show ? <ShowGrid shows={apiData} /> : <ActorsGrid actors={apiData}/>;
+      return apiData[0].show ? (
+        <ShowGrid shows={apiData} />
+      ) : (
+        <ActorsGrid actors={apiData} />
+      );
     }
     return null;
   };
