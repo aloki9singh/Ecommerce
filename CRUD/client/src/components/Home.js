@@ -14,7 +14,7 @@ const Home = () => {
   console.log("ddata", ddata);
   console.log("udata", udata);
   const getData = async () => {
-    const res = await fetch(`/getdata`);
+    const res = await fetch(`https://crud-y944.onrender.com/getdata`);
 
     const data = await res.json();
 
@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   const handleDelete = async (id) => {
-    const res2 = await fetch(`/deleteuser/${id}`, {
+    const res2 = await fetch(`https://crud-y944.onrender.com/deleteuser/${id}`, {
       method: "DELETE",
     });
 

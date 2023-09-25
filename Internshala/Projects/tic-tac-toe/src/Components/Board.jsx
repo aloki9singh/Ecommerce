@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Square from "./Square";
 
-const Board = ({ squares, handleSquareClick }) => {
+const Board = ({ squares, handleSquareClick, winningsquares }) => {
   // const [squares, setSquares] = useState(Array(9).fill(null));
   // const [isXNext, setIsXNext] = useState(false);
   // const handleSquareClick = (Clickedposition) => {
@@ -22,10 +22,14 @@ const Board = ({ squares, handleSquareClick }) => {
   // };
 
   const renderSquare = (position) => {
+    const isWinningSquare = winningsquares.includes(position);
+
     return (
       <Square
+        squares={squares}
         value={squares[position]}
         onClick={() => handleSquareClick(position)}
+        isWinningSquare={isWinningSquare}
       />
     );
   };

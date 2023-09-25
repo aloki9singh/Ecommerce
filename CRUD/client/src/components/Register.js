@@ -26,7 +26,7 @@ const Register = () => {
   };
   const addInputData = async (e) => {
     e.preventDefault();
-    const res = await fetch(`/register`, {
+    const res = await fetch(`https://crud-y944.onrender.com/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

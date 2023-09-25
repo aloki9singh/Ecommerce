@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  padding: 20px;
+  text-align: center;
+}
+.filter_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.product_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.product {
+  border: 2px solid salmon;
+  padding: 20px;
+}

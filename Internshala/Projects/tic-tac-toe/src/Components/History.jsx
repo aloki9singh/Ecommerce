@@ -6,7 +6,7 @@ const History = ({ history, moveTo ,currentMove}) => {
       <ul className="history">
         {history.map((e, i) => (
           <li key={i}>
-            <button className={`btn-move ${currentMove==i?"active":""}`} onClick={() => moveTo(i)}>
+            <button className={`btn-move${currentMove==i?"active":""}`} onClick={() => moveTo(i)}>
               {i == 0 ? "Go to Game Start" : `Go to move #${i}`}
             </button>
           </li>

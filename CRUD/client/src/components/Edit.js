@@ -29,7 +29,7 @@ const Edit = () => {
  
 
   const getData = async () => {
-    const res = await fetch(`http://localhost:8080/getdata/${id}`);
+    const res = await fetch(`https://crud-y944.onrender.com/getdata/${id}`);
 
     const data = await res.json();
 
@@ -45,7 +45,7 @@ const Edit = () => {
   const updateData=async(e)=>{
      e .preventDefault()
 
-    const res2 = await fetch(`http://localhost:8080/updateuser/${id}`, {
+    const res2 = await fetch(`https://crud-y944.onrender.com/updateuser/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

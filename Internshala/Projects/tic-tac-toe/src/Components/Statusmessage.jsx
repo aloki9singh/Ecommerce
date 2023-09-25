@@ -11,20 +11,20 @@ const Statusmessage = ({ winner, gamingBoard }) => {
   const renderStatusMessage = () => {
     if (winner) {
       return (
-        <>
+        <div >
           Winner is{" "}
-          <span className={isXNext ? "text-green" : "text-orange"}>
+          <span className={isXNext ? "text-orange" : "text-green"}>
             {winner}
           </span>
-        </>
+        </div>
       );
     }
     if (!winner && noMovesLeft) {
       return (
-        <>
-          <div className="text-orange">O</div>and{" "}
-          <div className="text-green">X</div> Tie.
-        </>
+        <div className="winning">
+          <span className="text-orange">O </span>and{" "}
+          <span className="text-green">X </span> Tie.
+        </div>
       );
     }
     if (!winner && !noMovesLeft) {
