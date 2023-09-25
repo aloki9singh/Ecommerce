@@ -1,9 +1,12 @@
 import React from "react";
+import {   useStarredShows } from "../lib/useStarredShows";
 
 const Starred = () => {
+  const [starredShows] = useStarredShows()
+
   return (
     <div>
-      <h1>Starred</h1>
+      <h1>Starred {starredShows.length}</h1>
     </div>
   );
 };
