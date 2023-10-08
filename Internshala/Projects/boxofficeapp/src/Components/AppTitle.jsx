@@ -1,3 +1,16 @@
+import styled from "styled-components"
+
+const AppTitle = ({ title, subtitle }) => {
+  return (
+    <TitleWrapper>
+      <h1>{title}</h1>
+      <p>{subtitle}</p>
+    </TitleWrapper>
+  );
+};
+
+export default AppTitle;
+
 const TitleWrapper = styled.div`
   text-align: center;
   margin: 0 0 40px;

@@ -7,27 +7,27 @@ import ActorsGrid from "../Components/actors/ActorsGrid";
 import Searchform from "../Components/Searchform";
 import ShowGrid from "../Components/shows/ShowGrid";
 import styled, { css } from "styled-components";
+import { TextCenter } from "../Components/common/TextCenter";
 
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid #bf4f74;
+  color: #bf4f74;
+  margin: 0 1em;
+  padding: 0.25em 1em;
 
-const Button=styled.button`
-background: transparent;
-border-radius: 3px;
-border: 2px solid #BF4F74;
-color: #BF4F74;
-margin: 0 1em;
-padding: 0.25em 1em;
-
-${props =>
-  props.$primary &&
-  css`
-    background: '#BF4F74';
-    color: white;
-  `}
-`
+  ${(props) =>
+    props.$primary &&
+    css`
+      background: "#BF4F74";
+      color: white;
+    `}
+`;
 
 const Home = () => {
   const [filter, setFilter] = useState("");
- 
+
   const { data: apiData, error: apidataError } = useQuery({
     queryKey: ["search", filter],
     queryFn: () =>
@@ -43,10 +43,10 @@ const Home = () => {
   };
   const renderApiData = () => {
     if (apidataError) {
-      return <div>Error occured:{apidataError.message}</div>;
+      return <TextCenter>Error occured:{apidataError.message}</TextCenter>;
     }
     if (apiData?.length == 0) {
-      return <div>No Results</div>;
+      return <TextCenter>No Results</TextCenter>;
     }
     if (apiData) {
       return apiData[0].show ? (
@@ -61,7 +61,7 @@ const Home = () => {
   return (
     <div>
       <Searchform onSearch={onSearch} />
-      <Button >Hi</Button>
+
       <div id="container">{renderApiData()}</div>
     </div>
   );
