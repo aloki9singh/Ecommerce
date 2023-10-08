@@ -6,6 +6,24 @@ import { searchforActors, searchforShows } from "../api/tvmaze";
 import ActorsGrid from "../Components/actors/ActorsGrid";
 import Searchform from "../Components/Searchform";
 import ShowGrid from "../Components/shows/ShowGrid";
+import styled, { css } from "styled-components";
+
+
+const Button=styled.button`
+background: transparent;
+border-radius: 3px;
+border: 2px solid #BF4F74;
+color: #BF4F74;
+margin: 0 1em;
+padding: 0.25em 1em;
+
+${props =>
+  props.$primary &&
+  css`
+    background: '#BF4F74';
+    color: white;
+  `}
+`
 
 const Home = () => {
   const [filter, setFilter] = useState("");
@@ -43,6 +61,7 @@ const Home = () => {
   return (
     <div>
       <Searchform onSearch={onSearch} />
+      <Button >Hi</Button>
       <div id="container">{renderApiData()}</div>
     </div>
   );

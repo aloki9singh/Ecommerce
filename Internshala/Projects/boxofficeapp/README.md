@@ -320,3 +320,4 @@ export const mentorsSchedduleCollection = collection(db, "mentorsSchedule");
 export const DailyTipsCollection = collection(db, "dailytip");
 
 
+https://gist.github.com/shelooks16/d0d533d129f1469e5ccb28fb7337959f

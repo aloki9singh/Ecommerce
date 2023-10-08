@@ -5,6 +5,7 @@ const Mainlayout = () => {
   return (
     <div>
       <h1>Box Office</h1>
+      <div>Are you looking for a movie or actor?</div>
       <Navbar />
 
       <Outlet />
