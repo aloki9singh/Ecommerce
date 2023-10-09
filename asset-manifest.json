@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.70252046.css",
-    "main.js": "/my-app/static/js/main.eccb151a.js",
-    "index.html": "/my-app/index.html",
-    "main.70252046.css.map": "/my-app/static/css/main.70252046.css.map",
-    "main.eccb151a.js.map": "/my-app/static/js/main.eccb151a.js.map"
+    "main.css": "/boxofficeapp/static/css/main.70252046.css",
+    "main.js": "/boxofficeapp/static/js/main.c19e62ea.js",
+    "index.html": "/boxofficeapp/index.html",
+    "main.70252046.css.map": "/boxofficeapp/static/css/main.70252046.css.map",
+    "main.c19e62ea.js.map": "/boxofficeapp/static/js/main.c19e62ea.js.map"
   },
   "entrypoints": [
     "static/css/main.70252046.css",
-    "static/js/main.eccb151a.js"
+    "static/js/main.c19e62ea.js"
   ]
 }
