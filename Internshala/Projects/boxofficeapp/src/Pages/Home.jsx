@@ -9,21 +9,7 @@ import ShowGrid from "../Components/shows/ShowGrid";
 import styled, { css } from "styled-components";
 import { TextCenter } from "../Components/common/TextCenter";
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid #bf4f74;
-  color: #bf4f74;
-  margin: 0 1em;
-  padding: 0.25em 1em;
 
-  ${(props) =>
-    props.$primary &&
-    css`
-      background: "#BF4F74";
-      color: white;
-    `}
-`;
 
 const Home = () => {
   const [filter, setFilter] = useState("");
