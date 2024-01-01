@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SearchCard, SearchImgWrapper } from "../common/SearchCard";
-import {StarIcon} from "../common/StarIcon"
+import { StarIcon } from "../common/StarIcon";
 const ShowCard = ({ name, image, id, summary, onStarClick, isStarred }) => {
   const summaryStripped = summary
     ? summary.split(" ").slice(0, 10).join(" ").replace(/<.+?>/g, "")
     : "No description";
 
+  const starBtnRef = useRef();
+  const handleClick=()=>{
+    onStarClick(id)
+    const starBtnE1=starBtnRef.current
+    if(starBtnE1) return;
+    if (isStarred) {
+      starBtnE1.classList.remove('minute')
+    } else {
+      starBtnE1.classList.add('minute')
+    }
+   
+  }
   return (
     <SearchCard>
       <SearchImgWrapper>
@@ -19,19 +31,22 @@ const ShowCard = ({ name, image, id, summary, onStarClick, isStarred }) => {
         {/* <Link to={`/show/${id}`}> Read More ...</Link> */}
 
         {/* /if wE WANT TO OPEN LINKJ IN NEW TAB. */}
-        <a href={`/show/${id}`} target={"_blank"} rel="noreferrer">
+        <Link to={`boxofficeapp/show/${id}`} target={"_blank"} rel="noreferrer">
           Read More ...
-        </a>
-        <StarBtn type="button" onClick={() => onStarClick(id)}>
+        </Link>
+        <StarBtn
+          ref={starBtnRef}
+          type="button"
+          onClick={() => onStarClick(id)}
+        >
           {/* {isStarred ? "Unstar Me" : "Star me"} */}
-         <StarIcon active={isStarred}/>
+          <StarIcon active={isStarred} />
         </StarBtn>
       </ActionSection>
     </SearchCard>
   );
 };
 export default ShowCard;
-
 
 const ActionSection = styled.div`
   margin-top: 15px;
@@ -59,5 +74,21 @@ const StarBtn = styled.button`
   align-items: center;
   &:hover {
     cursor: pointer;
+  }
+  &.animate {
+    ${StarIcon} {
+      animation: increase 0.75s ease-in forwards;
+      @keyframes increase {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(3) rotate(45deg);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    }
   }
 `;
