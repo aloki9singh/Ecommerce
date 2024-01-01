@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+As of my last knowledge update in January 2022, GitHub does not publicly disclose specific commit count thresholds associated with each color on the contribution heatmap. The color intensity is more qualitative and provides a visual representation of the user's activity without precise numeric values.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+However, you can make general observations based on the typical level of activity associated with each color:
 
-## Available Scripts
+1. **Light Green (Low Activity):**
+   - This might represent a day with a small number of commits, perhaps less than 5 or 10.
+   - It indicates relatively low activity, such as minor code changes or a small contribution.
 
-In the project directory, you can run:
+2. **Medium Green (Moderate Activity):**
+   - A moderate level of activity may involve a noticeable increase in commits, ranging from around 10 to 20 or more.
+   - Users may have worked on multiple features, fixed bugs, or made substantial contributions.
 
-### `npm start`
+3. **Dark Green (High Activity):**
+   - Dark green squares represent days with a high level of activity.
+   - This could involve a significant number of commits, perhaps exceeding 20 or 30.
+   - It suggests substantial contributions, possibly involving major feature development or extensive code changes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. **Darkest Green (Very High Activity):**
+   - The darkest green squares indicate exceptionally high activity.
+   - This could involve a large number of commits, potentially exceeding 50 or more.
+   - It suggests an intense day of development with extensive work on multiple fronts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It's important to note that these are general estimations based on common practices, and the actual thresholds might vary. GitHub's color scheme is designed to provide a quick visual overview rather than precise quantification. Additionally, GitHub may update or adjust these color thresholds over time. For the most accurate and up-to-date information, it's recommended to refer to GitHub's official documentation or announcements.
