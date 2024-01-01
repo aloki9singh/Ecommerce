@@ -5,12 +5,7 @@ import './styles/main.scss';
 hi
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/signin">SignIn</Route>
-        <Route path="/">Home</Route>
-      </Switch>
-    </BrowserRouter>
+    <></>
   );
 }
 
